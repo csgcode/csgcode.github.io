@@ -253,6 +253,7 @@
   .job:last-child { border-bottom: 0; }
   @media (max-width: 700px) { .job { grid-template-columns: 1fr; gap: 8px; } }
   .job-when { font-family: var(--mono); font-weight: 600; font-size: 0.8rem; color: var(--ink-soft); padding-top: 7px; }
+  .job-when .loc { font-weight: 500; opacity: 0.75; }
   .job-when .now {
     display: inline-block; margin-top: 8px;
     background: color-mix(in srgb, var(--green) 14%, var(--bg));
@@ -261,6 +262,10 @@
     padding: 3px 10px; border-radius: 999px;
   }
   .job h3 { font-size: 1.28rem; font-weight: 750; letter-spacing: -0.015em; }
+  .job h3 a { color: inherit; }
+  .job h3 a::after { content: " ↗"; font-family: var(--mono); font-size: 0.72em; color: var(--ink-soft); font-weight: 600; }
+  .job h3 a:hover { color: var(--blue); text-decoration: none; }
+  .job h3 a:hover::after { color: var(--blue); }
   .job .role { color: var(--blue); font-weight: 650; margin-bottom: 12px; }
   .job ul { list-style: none; margin-bottom: 14px; }
   .job li { color: var(--ink-soft); padding: 5px 0 5px 22px; position: relative; }
@@ -479,9 +484,9 @@
     <h2><span class="kw">def</span> <span class="fn">experience</span><span class="pn">():</span></h2>
 
     <div class="job">
-      <div class="job-when">2026.02 — now<br><span class="now">Current</span></div>
+      <div class="job-when">2026.02 — now<br><span class="loc">london, uk</span><br><span class="now">Current</span></div>
       <div>
-        <h3>Hopper OS</h3>
+        <h3><a href="https://hopco.com" target="_blank" rel="noopener">Hopper OS</a></h3>
         <div class="role">Backend Engineer</div>
         <ul>
           <li>Modernising a large legacy <strong>Django</strong> healthcare platform serving <strong>millions of users</strong>, with a focus on performance and reliability.</li>
@@ -494,9 +499,9 @@
     </div>
 
     <div class="job">
-      <div class="job-when">2023.03 — 2024.09</div>
+      <div class="job-when">2023.03 — 2024.09<br><span class="loc">kochi, india</span></div>
       <div>
-        <h3>Ernst &amp; Young (EY GDS)</h3>
+        <h3><a href="https://www.ey.com" target="_blank" rel="noopener">Ernst &amp; Young (EY GDS)</a></h3>
         <div class="role">Technical Lead — Platform Engineering, AWS</div>
         <ul>
           <li>Led <strong>LLM-integrated proof-of-concepts</strong>, including a RAG-based agent that generates CI/CD pipelines from templated infrastructure stored in a vector database.</li>
@@ -509,9 +514,9 @@
     </div>
 
     <div class="job">
-      <div class="job-when">2021.05 — 2023.03</div>
+      <div class="job-when">2021.05 — 2023.03<br><span class="loc">kochi, india</span></div>
       <div>
-        <h3>Litebreeze AB</h3>
+        <h3><a href="https://litebreeze.com" target="_blank" rel="noopener">Litebreeze AB</a></h3>
         <div class="role">Senior Software Engineer — Python, AWS, LLM</div>
         <ul>
           <li>Solo Python lead carving <strong>microservices out of a PHP monolith</strong> — built a greenfield file-storage service on AWS serverless (Lambda, API Gateway, SAM).</li>
@@ -524,9 +529,9 @@
     </div>
 
     <div class="job">
-      <div class="job-when">2018.05 — 2021.04</div>
+      <div class="job-when">2018.05 — 2021.04<br><span class="loc">kochi, india</span></div>
       <div>
-        <h3>SayOne Technologies</h3>
+        <h3><a href="https://www.sayonetech.com" target="_blank" rel="noopener">SayOne Technologies</a></h3>
         <div class="role">Full Stack Engineer — Python, Django, Angular</div>
         <ul>
           <li>Built and shipped full-stack products with <strong>Django REST Framework and Angular</strong>.</li>
