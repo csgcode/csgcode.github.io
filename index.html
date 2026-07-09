@@ -8,6 +8,12 @@
 <meta property="og:title" content="Gokul Chirayath Sudheer — Backend Engineer">
 <meta property="og:description" content="Python · AWS · LLMs · Django. Building backend systems and AI-enabled tooling for products serving millions.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://csgcode.github.io">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/30956686?v=4">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gokul Chirayath Sudheer — Backend Engineer">
+<meta name="twitter:description" content="Python · AWS · LLMs · Django. Building backend systems and AI-enabled tooling for products serving millions.">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/30956686?v=4">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFCF0">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#100F0F">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23205EA6'/><text x='50' y='68' font-size='52' font-family='Georgia' font-weight='bold' text-anchor='middle' fill='%23FFFCF0'>G</text></svg>">
@@ -28,7 +34,8 @@
   "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
   "email": "mailto:imgokulcs@gmail.com",
   "url": "https://csgcode.github.io",
-  "sameAs": ["https://github.com/csgcode", "https://www.linkedin.com/in/gokul-cs"],
+  "image": "https://avatars.githubusercontent.com/u/30956686?v=4",
+  "sameAs": ["https://github.com/csgcode", "https://www.linkedin.com/in/csgokul"],
   "knowsAbout": ["Python", "Django", "AWS", "Large Language Models", "CI/CD", "Serverless Architecture"],
   "alumniOf": [
     { "@type": "CollegeOrUniversity", "name": "University of East London" },
@@ -209,7 +216,6 @@
   h2 .kw { color: var(--purple); font-style: italic; }
   h2 .fn { color: var(--blue); }
   h2 .pn { color: var(--ink-soft); }
-  h2 .num { color: var(--ink-soft); font-size: 0.85rem; font-weight: 600; opacity: 0.7; margin-left: 12px; }
 
   /* About */
   .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: start; }
@@ -318,12 +324,11 @@
   /* Education */
   .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
   .edu {
-    background: var(--surface); border: 1px solid var(--line-strong); border-left: 4px solid var(--blue);
+    background: var(--surface); border: 1px solid var(--line-strong);
     border-radius: 10px; padding: 22px 24px; box-shadow: var(--shadow-soft);
   }
   .edu h3 { font-size: 1.05rem; font-weight: 750; }
   .edu p { color: var(--ink-soft); font-size: 0.95rem; }
-  .edu.award { border-left-color: var(--orange); }
 
   /* Contact */
   .contact { text-align: center; padding: 90px 0 100px; }
@@ -408,7 +413,9 @@
 <header id="top">
   <div class="wrap">
     <div class="prompt"><span class="dollar">➜  ~</span> <span class="cmd">whoami</span><br><span class="out">backend_engineer · london_uk</span></div>
-    <h1>I build <span class="hl">Python backends</span> and AI‑enabled systems that serve millions.<span class="cursor" aria-hidden="true"></span></h1>
+    <h1 aria-label="I build Python backends that serve millions.">
+      <span aria-hidden="true">I build <span class="hl" id="rotator">Python backends</span><span class="cursor"></span><br>that serve millions.</span>
+    </h1>
     <p class="hero-sub">
       Hi, I'm <strong>Gokul Chirayath Sudheer</strong> — a backend engineer with 7+ years across
       <strong>Python, Django, AWS and LLM-integrated products</strong>. Currently modernising
@@ -417,7 +424,7 @@
     <div class="cta-row">
       <a class="btn btn-primary" href="#contact">./get-in-touch</a>
       <a class="btn btn-ghost" href="https://github.com/csgcode" target="_blank" rel="me noopener">github ↗</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/gokul-cs" target="_blank" rel="me noopener">linkedin ↗</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/csgokul" target="_blank" rel="me noopener">linkedin ↗</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><b>7+</b><small>years of engineering</small></div>
@@ -430,7 +437,7 @@
 
 <section id="about" class="reveal">
   <div class="wrap">
-    <h2><span class="kw">def</span> <span class="fn">about</span><span class="pn">():</span><span class="num"># 01</span></h2>
+    <h2><span class="kw">def</span> <span class="fn">about</span><span class="pn">():</span></h2>
     <div class="about-grid">
       <div>
         <p>
@@ -468,7 +475,7 @@
 
 <section id="experience" class="reveal">
   <div class="wrap">
-    <h2><span class="kw">def</span> <span class="fn">experience</span><span class="pn">():</span><span class="num"># 02</span></h2>
+    <h2><span class="kw">def</span> <span class="fn">experience</span><span class="pn">():</span></h2>
 
     <div class="job">
       <div class="job-when">2026.02 — now<br><span class="now">Current</span></div>
@@ -535,7 +542,7 @@
 
 <section id="projects" class="reveal">
   <div class="wrap">
-    <h2><span class="kw">def</span> <span class="fn">highlighted_work</span><span class="pn">():</span><span class="num"># 03</span></h2>
+    <h2><span class="kw">def</span> <span class="fn">highlighted_work</span><span class="pn">():</span></h2>
     <div class="proj-grid">
       <div class="proj">
         <div class="fname"><b>pipeline_agent.py</b><span>~/ey/poc</span></div>
@@ -567,7 +574,7 @@
 
 <section id="skills" class="reveal">
   <div class="wrap">
-    <h2><span class="kw">def</span> <span class="fn">skills</span><span class="pn">():</span><span class="num"># 04</span></h2>
+    <h2><span class="kw">def</span> <span class="fn">skills</span><span class="pn">():</span></h2>
     <div class="code-window">
       <div class="code-bar"><i></i><i></i><i></i><span>skills.py — the stuff I reach for daily</span></div>
       <div class="code-body">
@@ -579,7 +586,7 @@
 
 <section id="education" class="reveal">
   <div class="wrap">
-    <h2><span class="kw">def</span> <span class="fn">education_and_awards</span><span class="pn">():</span><span class="num"># 05</span></h2>
+    <h2><span class="kw">def</span> <span class="fn">education_and_awards</span><span class="pn">():</span></h2>
     <div class="edu-grid">
       <div class="edu">
         <h3>MSc, Data Science</h3>
@@ -589,8 +596,8 @@
         <h3>B.Tech, Computer Science &amp; Engineering</h3>
         <p>Mahatma Gandhi University · 2013 — 2017</p>
       </div>
-      <div class="edu award">
-        <h3>🏆 Djangothon — Hackathon Winner</h3>
+      <div class="edu">
+        <h3>Djangothon — Hackathon Winner</h3>
         <p>HackerEarth · Dec 2018</p>
       </div>
     </div>
@@ -599,12 +606,12 @@
 
 <section id="contact" class="contact reveal">
   <div class="wrap">
-    <h2><span class="kw">def</span> <span class="fn">lets_talk</span><span class="pn">():</span><span class="num"># 06</span></h2>
+    <h2><span class="kw">def</span> <span class="fn">lets_talk</span><span class="pn">():</span></h2>
     <p>Open to interesting backend and AI-engineering conversations — the fastest way to reach me is email.</p>
     <a class="email" href="mailto:imgokulcs@gmail.com">imgokulcs@gmail.com</a>
     <div class="socials">
       <a class="btn btn-ghost" href="https://github.com/csgcode" target="_blank" rel="me noopener">github ↗</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/gokul-cs" target="_blank" rel="me noopener">linkedin ↗</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/csgokul" target="_blank" rel="me noopener">linkedin ↗</a>
     </div>
   </div>
 </section>
@@ -653,6 +660,32 @@
     const target = document.querySelector(a.hash);
     if (target) spy.observe(target);
   });
+
+  // Rotating hero keyword — types and erases the things I build
+  const rotator = document.getElementById('rotator');
+  const BUILDS = ['Python backends', 'AI-enabled systems', 'CI/CD platforms', 'serverless APIs', 'healthcare platforms'];
+  if (rotator && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const TYPE_MS = 70, ERASE_MS = 40, HOLD_MS = 2600;
+    let idx = 0;
+    function erase(done) {
+      const t = rotator.textContent;
+      if (!t.length) return done();
+      rotator.textContent = t.slice(0, -1);
+      setTimeout(() => erase(done), ERASE_MS);
+    }
+    function type(word, i) {
+      if (i > word.length) return setTimeout(next, HOLD_MS);
+      rotator.textContent = word.slice(0, i);
+      setTimeout(() => type(word, i + 1), TYPE_MS);
+    }
+    function next() {
+      erase(() => {
+        idx = (idx + 1) % BUILDS.length;
+        type(BUILDS[idx], 0);
+      });
+    }
+    setTimeout(next, HOLD_MS);
+  }
 
   // For the curious ones who open devtools 👋
   console.log([
