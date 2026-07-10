@@ -200,6 +200,9 @@
   .btn-primary { background: var(--blue); color: var(--on-accent); border: 1px solid transparent; }
   .btn-ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); box-shadow: var(--shadow-soft); }
   .btn-ghost:hover { border-color: var(--blue); }
+  .btn-cv { background: var(--surface); color: var(--orange); border: 1px solid var(--orange); box-shadow: var(--shadow-soft); }
+  .btn-cv:hover { background: var(--orange); color: var(--on-accent); }
+  .cta-row .btn-cv { margin-left: auto; }
   .hero-stats {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 18px; margin-top: 64px; padding-top: 34px; border-top: 1px solid var(--line);
@@ -403,7 +406,7 @@
 
 <nav>
   <div class="wrap nav-inner">
-    <a class="logo" href="#top"><span class="p">~</span>/gokul<span class="c">.cs</span></a>
+    <a class="logo" href="#contact"><span class="p">~</span>/gokul<span class="c">.cs</span></a>
     <div class="nav-right">
       <div class="nav-links">
         <a href="#experience">experience</a>
@@ -431,12 +434,13 @@
       <a class="btn btn-primary" href="#contact">./get-in-touch</a>
       <a class="btn btn-ghost" href="https://github.com/csgcode" target="_blank" rel="me noopener">github ↗</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/csgokul" target="_blank" rel="me noopener">linkedin ↗</a>
+      <a class="btn btn-cv" href="Gokul-Chirayath-CV.pdf" download="Gokul-Chirayath-CV.pdf">cv.pdf ⇣</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><b>7+ yrs</b><small>shipping production software</small></div>
-      <div class="stat"><b>1M+</b><small>users on platforms I've worked on</small></div>
+      <div class="stat"><b>10+</b><small>products shipped, startup to enterprise</small></div>
+      <div class="stat"><b>3M+</b><small>users on platforms I've worked on</small></div>
       <div class="stat"><b>3</b><small>AI systems across NLP, RAG &amp; dev-tooling</small></div>
-      <div class="stat"><b>95%</b><small>cut in project setup time</small></div>
     </div>
   </div>
 </header>
@@ -617,6 +621,7 @@
     <div class="socials">
       <a class="btn btn-ghost" href="https://github.com/csgcode" target="_blank" rel="me noopener">github ↗</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/csgokul" target="_blank" rel="me noopener">linkedin ↗</a>
+      <a class="btn btn-cv" href="Gokul-Chirayath-CV.pdf" download="Gokul-Chirayath-CV.pdf">cv.pdf ⇣</a>
     </div>
   </div>
 </section>
@@ -668,7 +673,7 @@
 
   // Rotating hero keyword — types and erases the things I build
   const rotator = document.getElementById('rotator');
-  const BUILDS = ['Python backends', 'AI-enabled systems', 'full-stack products', 'CI/CD platforms', 'serverless APIs', 'healthcare platforms'];
+  const BUILDS = ['Python backends', 'AI-enabled systems', 'full-stack products', 'CI/CD platforms', 'serverless APIs', 'healthcare platforms', 'e-commerce products'];
   if (rotator && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const TYPE_MS = 70, ERASE_MS = 40, HOLD_MS = 2600;
     let idx = 0;
