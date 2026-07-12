@@ -407,13 +407,13 @@
 
 <nav>
   <div class="wrap nav-inner">
-    <a class="logo" href="#contact"><span class="p">~</span>/gokul<span class="c">.cs</span></a>
+    <a class="logo" href="#contact" data-umami-event="nav-click" data-umami-event-target="logo-contact"><span class="p">~</span>/gokul<span class="c">.cs</span></a>
     <div class="nav-right">
       <div class="nav-links">
-        <a href="#experience">experience</a>
-        <a href="#projects">projects</a>
-        <a class="hide-sm" href="#skills">skills</a>
-        <a href="#contact">contact</a>
+        <a href="#experience" data-umami-event="nav-click" data-umami-event-target="experience">experience</a>
+        <a href="#projects" data-umami-event="nav-click" data-umami-event-target="projects">projects</a>
+        <a class="hide-sm" href="#skills" data-umami-event="nav-click" data-umami-event-target="skills">skills</a>
+        <a href="#contact" data-umami-event="nav-click" data-umami-event-target="contact">contact</a>
       </div>
       <button id="theme-btn" aria-label="Toggle light/dark theme" title="Toggle theme [t]">◐</button>
     </div>
@@ -491,7 +491,7 @@
     <div class="job">
       <div class="job-when">2026.02 — now<br><span class="loc">london, uk</span><br><span class="now">Current</span></div>
       <div>
-        <h3><a href="https://hopco.com" target="_blank" rel="noopener">Hopper OS</a></h3>
+        <h3><a href="https://hopco.com" target="_blank" rel="noopener" data-umami-event="company-click" data-umami-event-company="hopper-os">Hopper OS</a></h3>
         <div class="role">Backend Engineer</div>
         <ul>
           <li>Modernising a large legacy <strong>Django</strong> healthcare platform serving <strong>millions of users</strong> — improving performance and reliability while shipping new features across existing products.</li>
@@ -505,7 +505,7 @@
     <div class="job">
       <div class="job-when">2023.03 — 2024.09<br><span class="loc">kochi, india</span></div>
       <div>
-        <h3><a href="https://www.ey.com" target="_blank" rel="noopener">Ernst &amp; Young (EY GDS)</a></h3>
+        <h3><a href="https://www.ey.com" target="_blank" rel="noopener" data-umami-event="company-click" data-umami-event-company="ey-gds">Ernst &amp; Young (EY GDS)</a></h3>
         <div class="role">Technical Lead — Platform Engineering, AWS</div>
         <ul>
           <li>Led <strong>LLM-integrated proof-of-concepts</strong>, including a RAG-based agent that generates CI/CD pipelines from templated infrastructure stored in a vector database.</li>
@@ -520,7 +520,7 @@
     <div class="job">
       <div class="job-when">2021.05 — 2023.03<br><span class="loc">kochi, india</span></div>
       <div>
-        <h3><a href="https://litebreeze.com" target="_blank" rel="noopener">Litebreeze AB</a></h3>
+        <h3><a href="https://litebreeze.com" target="_blank" rel="noopener" data-umami-event="company-click" data-umami-event-company="litebreeze">Litebreeze AB</a></h3>
         <div class="role">Senior Software Engineer — Python, AWS, NLP</div>
         <ul>
           <li>Extracted <strong>microservices from a PHP monolith</strong> as the sole Python engineer — built a greenfield file-storage service on AWS serverless (Lambda, API Gateway, SAM).</li>
@@ -535,7 +535,7 @@
     <div class="job">
       <div class="job-when">2018.05 — 2021.04<br><span class="loc">kochi, india</span></div>
       <div>
-        <h3><a href="https://www.sayonetech.com" target="_blank" rel="noopener">SayOne Technologies</a></h3>
+        <h3><a href="https://www.sayonetech.com" target="_blank" rel="noopener" data-umami-event="company-click" data-umami-event-company="sayone">SayOne Technologies</a></h3>
         <div class="role">Full Stack Engineer — Python, Django, Angular</div>
         <ul>
           <li>Built and shipped full-stack products with <strong>Django REST Framework and Angular</strong>.</li>
@@ -651,6 +651,7 @@
     document.querySelectorAll('meta[name="theme-color"]').forEach(m => {
       m.setAttribute('content', next === 'dark' ? '#100F0F' : '#FFFCF0');
     });
+    window.umami?.track('theme-toggle', { to: next });
   }
   btn.addEventListener('click', flipTheme);
   document.addEventListener('keydown', (e) => {
@@ -710,6 +711,21 @@
     }
   }, { rootMargin: '-25% 0px -25% 0px' });
   document.querySelectorAll('section[id]').forEach(s => sectionSpy.observe(s));
+
+  // Analytics: reached the footer = read the whole page (once per visit)
+  const endSpy = new IntersectionObserver((entries) => {
+    if (!entries.some(e => e.isIntersecting)) return;
+    window.umami?.track('page-complete');
+    endSpy.disconnect();
+  });
+  endSpy.observe(document.querySelector('footer'));
+
+  // Analytics: which project cards get clicked/tapped
+  document.querySelectorAll('.proj').forEach(card => {
+    card.addEventListener('click', () => {
+      window.umami?.track('project-click', { project: card.querySelector('h3')?.textContent ?? 'unknown' });
+    });
+  });
 
   // For the curious ones who open devtools 👋
   console.log([
