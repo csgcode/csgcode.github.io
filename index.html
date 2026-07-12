@@ -25,6 +25,7 @@
     if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
   })();
 </script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="d7599d22-075c-46ef-8572-3bd477faf2f7" data-domains="csgcode.github.io"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -432,9 +433,9 @@
     </p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#contact">./get-in-touch</a>
-      <a class="btn btn-ghost" href="https://github.com/csgcode" target="_blank" rel="me noopener">github ↗</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/csgokul" target="_blank" rel="me noopener">linkedin ↗</a>
-      <a class="btn btn-cv" href="Gokul-Chirayath-CV.pdf" download="Gokul-Chirayath-CV.pdf">cv.pdf ⇣</a>
+      <a class="btn btn-ghost" href="https://github.com/csgcode" target="_blank" rel="me noopener" data-umami-event="github-click" data-umami-event-location="hero">github ↗</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/csgokul" target="_blank" rel="me noopener" data-umami-event="linkedin-click" data-umami-event-location="hero">linkedin ↗</a>
+      <a class="btn btn-cv" href="Gokul-Chirayath-CV.pdf" download="Gokul-Chirayath-CV.pdf" data-umami-event="cv-download" data-umami-event-location="hero">cv.pdf ⇣</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><b>7+ yrs</b><small>shipping production software</small></div>
@@ -617,11 +618,11 @@
   <div class="wrap">
     <h2><span class="kw">def</span> <span class="fn">lets_talk</span><span class="pn">():</span></h2>
     <p>Open to interesting software and AI engineering conversations — the fastest way to reach me is email.</p>
-    <a class="email" href="mailto:imgokulcs@gmail.com">imgokulcs@gmail.com</a>
+    <a class="email" href="mailto:imgokulcs@gmail.com" data-umami-event="email-click">imgokulcs@gmail.com</a>
     <div class="socials">
-      <a class="btn btn-ghost" href="https://github.com/csgcode" target="_blank" rel="me noopener">github ↗</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/csgokul" target="_blank" rel="me noopener">linkedin ↗</a>
-      <a class="btn btn-cv" href="Gokul-Chirayath-CV.pdf" download="Gokul-Chirayath-CV.pdf">cv.pdf ⇣</a>
+      <a class="btn btn-ghost" href="https://github.com/csgcode" target="_blank" rel="me noopener" data-umami-event="github-click" data-umami-event-location="contact">github ↗</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/csgokul" target="_blank" rel="me noopener" data-umami-event="linkedin-click" data-umami-event-location="contact">linkedin ↗</a>
+      <a class="btn btn-cv" href="Gokul-Chirayath-CV.pdf" download="Gokul-Chirayath-CV.pdf" data-umami-event="cv-download" data-umami-event-location="contact">cv.pdf ⇣</a>
     </div>
   </div>
 </section>
@@ -696,6 +697,19 @@
     }
     setTimeout(next, HOLD_MS);
   }
+
+  // Analytics: fire one section-view event per section per visit, when it reaches
+  // the middle band of the viewport (so tall sections on small screens still count)
+  const seenSections = new Set();
+  const sectionSpy = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting || seenSections.has(e.target.id)) continue;
+      seenSections.add(e.target.id);
+      window.umami?.track('section-view', { section: e.target.id });
+      sectionSpy.unobserve(e.target);
+    }
+  }, { rootMargin: '-25% 0px -25% 0px' });
+  document.querySelectorAll('section[id]').forEach(s => sectionSpy.observe(s));
 
   // For the curious ones who open devtools 👋
   console.log([
